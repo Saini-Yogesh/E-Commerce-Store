@@ -58,6 +58,8 @@ const loginUser = asyncHandler(async (req, res) => {
       });
       return;
     }
+  } else {
+    res.status(404).send({ message: "invalid cradintial" });
   }
 });
 
@@ -95,7 +97,7 @@ const updateCurrentUserProfile = asyncHandler(async (req, res) => {
 
   if (user) {
     user.username = req.body.username || user.username;
-    user.email = req.body.email || user.email;
+    // user.email = req.body.email || user.email;
 
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
@@ -150,7 +152,7 @@ const updateUserById = asyncHandler(async (req, res) => {
 
   if (user) {
     user.username = req.body.username || user.username;
-    user.email = req.body.email || user.email;
+    // user.email = req.body.email || user.email;
     user.isAdmin = Boolean(req.body.isAdmin);
 
     const updatedUser = await user.save();

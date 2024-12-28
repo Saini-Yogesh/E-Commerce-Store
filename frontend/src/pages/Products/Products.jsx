@@ -9,7 +9,7 @@ import {
 import Rating from "./Rating";
 import Loader from "../../components/Loader";
 import Message from "../../components/Message";
-import { addToCart } from "../../redux/features/cart/cartSlice";
+import { addToCart } from "../../redux/features/cartSlice";
 import {
   FaBox,
   FaClock,

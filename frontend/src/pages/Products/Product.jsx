@@ -17,7 +17,18 @@ const Product = ({ product }) => {
         <Link to={`/product/${product._id}`}>
           <h2 className="flex justify-between items-center">
             <div className="text-lg">{product.name}</div>
-            <span className="bg-pink-100 text-pink-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300">
+            <span
+              style={{
+                backgroundColor: "#ffe4e6", // bg-pink-100
+                color: "#db2777", // text-pink-800
+                fontSize: "0.875rem", // text-sm
+                fontWeight: 500, // font-medium
+                padding: ".1rem .8rem", // px-3.5 py-0.5
+                borderRadius: "50px", // rounded-full
+                minWidth: "6rem", // min-w-[5rem]
+                textAlign: "center", // Ensure text is centered
+              }}
+            >
               $ {product.price}
             </span>
           </h2>

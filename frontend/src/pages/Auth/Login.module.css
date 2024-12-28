@@ -1,0 +1,149 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5rem auto;
+  max-width: 40rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  width: 100%;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.submitButton {
+  background-color: #db2777;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submitButton:hover {
+  background-color: #c026d3;
+}
+
+.submitButton:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.registerLink {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.registerAnchor {
+  color: #db2777;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.registerAnchor:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+  .formContainer {
+    max-width: 35rem;
+    padding: 0 0.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .formContainer {
+    max-width: 30rem;
+    margin: 4rem auto;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .input {
+    padding: 0.5rem;
+  }
+
+  .submitButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .formContainer {
+    max-width: 25rem;
+    margin: 3rem auto;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .input {
+    padding: 0.5rem;
+  }
+
+  .submitButton {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .formContainer {
+    max-width: 20rem;
+    margin: 2rem auto;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .input {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .submitButton {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .registerLink {
+    font-size: 0.875rem;
+  }
+}

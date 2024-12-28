@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 import Loader from "../../components/Loader";
 import { useProfileMutation } from "../../redux/api/usersApiSlice";
-import { setCredentials } from "../../redux/features/auth/authSlice";
+import { setCredentials } from "../../redux/features/authSlice";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
@@ -65,16 +65,17 @@ const Profile = () => {
             <div className="mb-4">
               <label className="block text-white mb-2">Email Address</label>
               <input
-                type="email"
-                placeholder="Enter email"
+                // type="email"
+                // placeholder="Enter email"
+                disabled
                 className="form-input p-4 rounded-sm w-full"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                // onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-white mb-2">Password</label>
+              <label className="block text-white mb-2">New Password</label>
               <input
                 type="password"
                 placeholder="Enter password"

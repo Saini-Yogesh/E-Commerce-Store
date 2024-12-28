@@ -1,25 +1,20 @@
 import { Link } from "react-router-dom";
 import HeartIcon from "./HeartIcon";
+import styles from "./SmallProduct.module.css";
 
 const SmallProduct = ({ product }) => {
   return (
-    <div className="w-[20rem] ml-[2rem] p-3">
-      <div className="relative">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-auto rounded"
-        />
+    <div className={styles.productCard}>
+      <div className={styles.imageContainer}>
+        <img src={product.image} alt={product.name} className={styles.image} />
         <HeartIcon product={product} />
       </div>
 
-      <div className="p-4">
+      <div className={styles.details}>
         <Link to={`/product/${product._id}`}>
-          <h2 className="flex justify-between items-center">
+          <h2 className={styles.productTitle}>
             <div>{product.name}</div>
-            <span className="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300">
-              ${product.price}
-            </span>
+            <span className={styles.priceTag}>${product.price}</span>
           </h2>
         </Link>
       </div>

@@ -11,6 +11,7 @@ import {
   FaStar,
   FaStore,
 } from "react-icons/fa";
+import styles from "./ProductCarousel.module.css";
 
 const ProductCarousel = () => {
   const { data: products, isLoading, error } = useGetTopProductsQuery();
@@ -23,20 +24,17 @@ const ProductCarousel = () => {
     slidesToScroll: 1,
     arrows: true,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2500,
   };
 
   return (
-    <div className="mb-4 lg:block xl:block md:block">
+    <div className={styles.carouselWrapper}>
       {isLoading ? null : error ? (
         <Message variant="danger">
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <Slider
-          {...settings}
-          className="xl:w-[50rem]  lg:w-[50rem] md:w-[56rem] sm:w-[40rem] sm:block"
-        >
+        <Slider {...settings} className={styles.slider}>
           {products.map(
             ({
               image,
@@ -51,48 +49,42 @@ const ProductCarousel = () => {
               quantity,
               countInStock,
             }) => (
-              <div key={_id}>
-                <img
-                  src={image}
-                  alt={name}
-                  className="w-full rounded-lg object-cover h-[30rem]"
-                />
+              <div key={_id} className={styles.slide}>
+                <img src={image} alt={name} className={styles.productImage} />
 
-                <div className="mt-4 flex justify-between">
-                  <div className="one">
-                    <h2>{name}</h2>
-                    <p> $ {price}</p> <br /> <br />
-                    <p className="w-[25rem]">
-                      {description.substring(0, 170)} ...
-                    </p>
+                <div className={styles.productDetails}>
+                  <div className={styles.basicInfo}>
+                    <p>{name}</p>
+                    <p className={styles.price}>${price}</p>
                   </div>
-
-                  <div className="flex justify-between w-[20rem]">
-                    <div className="one">
-                      <h1 className="flex items-center mb-6">
-                        <FaStore className="mr-2 text-white" /> Brand: {brand}
+                  <p className={styles.description}>
+                    {description.substring(0, 170)}...
+                  </p>
+                  <div className={styles.additionalInfo}>
+                    <div className={styles.infoColumn}>
+                      <h1 className={styles.infoItem}>
+                        <FaStore className={styles.icon} /> Brand: {brand}
                       </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaClock className="mr-2 text-white" /> Added:{" "}
+                      <h1 className={styles.infoItem}>
+                        <FaClock className={styles.icon} /> Added:{" "}
                         {moment(createdAt).fromNow()}
                       </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaStar className="mr-2 text-white" /> Reviews:
-                        {numReviews}
+                      <h1 className={styles.infoItem}>
+                        <FaStar className={styles.icon} /> Reviews: {numReviews}
                       </h1>
                     </div>
 
-                    <div className="two">
-                      <h1 className="flex items-center mb-6">
-                        <FaStar className="mr-2 text-white" /> Ratings:{" "}
+                    <div className={styles.infoColumn}>
+                      <h1 className={styles.infoItem}>
+                        <FaStar className={styles.icon} /> Ratings:{" "}
                         {Math.round(rating)}
                       </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaShoppingCart className="mr-2 text-white" /> Quantity:{" "}
+                      <h1 className={styles.infoItem}>
+                        <FaShoppingCart className={styles.icon} /> Quantity:{" "}
                         {quantity}
                       </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaBox className="mr-2 text-white" /> In Stock:{" "}
+                      <h1 className={styles.infoItem}>
+                        <FaBox className={styles.icon} /> In Stock:{" "}
                         {countInStock}
                       </h1>
                     </div>

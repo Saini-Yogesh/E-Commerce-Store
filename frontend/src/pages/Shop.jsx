@@ -7,7 +7,7 @@ import {
   setCategories,
   setProducts,
   setChecked,
-} from "../redux/features/shop/shopSlice";
+} from "../redux/features/shopSlice";
 import Loader from "../components/Loader";
 import ProductCard from "./Products/ProductCard";
 
@@ -163,8 +163,8 @@ const Shop = () => {
           </div>
 
           <div className="p-3">
-            <h2 className="h4 text-center mb-2">{products?.length} Products</h2>
-            <div className="flex flex-wrap">
+            {/* <h2 className="h4 text-center mb-2">{products?.length} Products</h2> */}
+            <div className="flex flex-wrap justify-evenly items-center">
               {products.length === 0 ? (
                 <Loader />
               ) : (
