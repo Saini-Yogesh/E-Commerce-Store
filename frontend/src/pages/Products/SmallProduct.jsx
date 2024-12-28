@@ -14,7 +14,7 @@ const SmallProduct = ({ product }) => {
         <Link to={`/product/${product._id}`}>
           <h2 className={styles.productTitle}>
             <div>{product.name}</div>
-            <span className={styles.priceTag}>${product.price}</span>
+            <span className={styles.priceTag}>₹{product.price}</span>
           </h2>
         </Link>
       </div>

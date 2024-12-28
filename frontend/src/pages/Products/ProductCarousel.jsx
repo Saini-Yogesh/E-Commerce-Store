@@ -55,7 +55,7 @@ const ProductCarousel = () => {
                 <div className={styles.productDetails}>
                   <div className={styles.basicInfo}>
                     <p>{name}</p>
-                    <p className={styles.price}>${price}</p>
+                    <p className={styles.price}>₹{price}</p>
                   </div>
                   <p className={styles.description}>
                     {description.substring(0, 170)}...

@@ -51,7 +51,7 @@ const Cart = () => {
                   </Link>
 
                   <div className={styles.itemBrand}>{item.brand}</div>
-                  <div className={styles.itemPrice}>$ {item.price}</div>
+                  <div className={styles.itemPrice}>₹ {item.price}</div>
                 </div>
 
                 <div className={styles.quantityWrapper}>
@@ -85,7 +85,7 @@ const Cart = () => {
               </h2>
 
               <div className={styles.totalPrice}>
-                ${" "}
+                ₹{" "}
                 {cartItems
                   .reduce((acc, item) => acc + item.qty * item.price, 0)
                   .toFixed(2)}

@@ -29,7 +29,7 @@ const Product = ({ product }) => {
                 textAlign: "center", // Ensure text is centered
               }}
             >
-              $ {product.price}
+              ₹ {product.price}
             </span>
           </h2>
         </Link>
