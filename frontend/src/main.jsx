@@ -15,6 +15,7 @@ import Register from "./pages/Auth/Register";
 import AdminRoute from "./pages/Admin/AdminRoute";
 import Profile from "./pages/User/Profile";
 import UserList from "./pages/Admin/UserList";
+import UserOrder from "./pages/User/UserOrder.jsx";
 
 import CategoryList from "./pages/Admin/CategoryList";
 
@@ -42,13 +43,14 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route index={true} path="/" element={<Home />} />
-      <Route path="/favorite" element={<Favorites />} />
       <Route path="/product/:id" element={<ProductDetails />} />
-      <Route path="/cart" element={<Cart />} />
       <Route path="/shop" element={<Shop />} />
 
       {/* Registered users */}
       <Route path="" element={<PrivateRoute />}>
+        <Route path="/favorite" element={<Favorites />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/userOrder" element={<UserOrder />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/placeorder" element={<PlaceOrder />} />

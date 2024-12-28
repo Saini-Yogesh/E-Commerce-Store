@@ -1,0 +1,163 @@
+.navigationContainer {
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #000;
+  color: white;
+  position: fixed;
+  width: 5%;
+  height: 100vh;
+  transition: width 0.3s ease-in-out;
+}
+
+.navigationContainer:hover {
+  width: 15%;
+}
+
+.iconSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s, padding-left 0.3s;
+  padding-left: 0;
+  margin-top: 25px;
+}
+
+.navLink:hover {
+  transform: translateX(8px);
+  padding-left: 10px;
+}
+
+.navItemName {
+  display: none;
+  margin-left: 8px;
+}
+
+.navigationContainer:hover .navItemName {
+  display: inline;
+}
+
+.relative {
+  position: relative;
+}
+
+.Badge {
+  position: absolute;
+  top: -8px;
+  left: 25px;
+  transform: translateX(-50%);
+  background-color: #ff1493;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+}
+
+.accountSection {
+  margin-top: auto;
+}
+
+.dropdownButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownIcon {
+  transition: transform 0.3s;
+}
+
+.rotateIcon {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  right: 0px;
+  top: auto;
+  transform: translateY(-100%);
+  background-color: white;
+  color: gray;
+  margin-top: 8px;
+  list-style: none;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownMenu li {
+  padding: 2px;
+}
+
+.dropdownMenu li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 1250px) {
+  .navigationContainer {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    position: fixed;
+  }
+
+  .navigationContainer:hover {
+    width: 100%;
+  }
+
+  .navItemName {
+    display: none;
+  }
+
+  .navigationContainer:hover .navItemName {
+    display: none;
+  }
+
+  .navLink {
+    margin-bottom: 1.5rem;
+  }
+
+  .accountSection {
+    width: 20%;
+  }
+
+  .register {
+    display: none;
+  }
+
+  .dropdownButton {
+    margin-bottom: 1rem;
+    padding: 0px;
+  }
+
+  .dropdownMenu {
+    right: auto;
+    top: 5px;
+  }
+
+  .iconSection {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+  }
+}

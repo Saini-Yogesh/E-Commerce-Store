@@ -38,9 +38,9 @@ const Shipping = () => {
   }, [navigate, shippingAddress]);
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto mt-10 w-[90%]">
       <ProgressSteps step1 step2 />
-      <div className="mt-[10rem] flex justify-around items-center flex-wrap">
+      <div className="mt-[2rem] flex justify-around items-center flex-wrap">
         <form onSubmit={submitHandler} className="w-[40rem]">
           <h1 className="text-2xl font-semibold mb-4">Shipping</h1>
           <div className="mb-4">
@@ -106,7 +106,7 @@ const Shipping = () => {
           </div>
 
           <button
-            className="bg-pink-500 text-white py-2 px-4 rounded-full text-lg w-full"
+            className="bg-pink-500 text-white py-2 px-4 rounded-[50px] text-lg w-full"
             type="submit"
           >
             Continue
