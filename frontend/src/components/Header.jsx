@@ -19,7 +19,7 @@ const Header = () => {
     <div className={styles.headerWrapper}>
       <div className={styles.smallProducts}>
         <div className={styles.grid}>
-          {data.map((product) => (
+          {data.slice(0, 2).map((product) => (
             <SmallProduct key={product._id} product={product} />
           ))}
         </div>
