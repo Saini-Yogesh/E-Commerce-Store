@@ -3,6 +3,7 @@ import Navigation from "./pages/Auth/Navigation";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./App.module.css";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Navigation className={styles.navigation} />
       <main className={styles.content}>
         <Outlet />
+        <Footer />
       </main>
     </div>
   );
