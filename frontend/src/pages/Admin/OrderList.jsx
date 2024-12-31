@@ -16,7 +16,7 @@ const OrderList = () => {
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <table className="container mx-auto">
+        <table className="container mx-auto w-[95%] mt-[2rem]">
           <AdminMenu />
 
           <thead className="w-full border">

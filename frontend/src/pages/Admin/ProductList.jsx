@@ -7,6 +7,7 @@ import {
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
 import { toast } from "react-toastify";
 import AdminMenu from "./AdminMenu";
+import styles from "./ProductList.module.css";
 
 const ProductList = () => {
   const [image, setImage] = useState("");
@@ -41,14 +42,14 @@ const ProductList = () => {
       const { data } = await createProduct(productData);
 
       if (data.error) {
-        toast.error("Product create failed. Try Again.");
+        toast.error("Product creation failed. Try Again.");
       } else {
         toast.success(`${data.name} is created`);
         navigate("/");
       }
     } catch (error) {
       console.error(error);
-      toast.error("Product create failed. Try Again.");
+      toast.error("Product creation failed. Try Again.");
     }
   };
 
@@ -67,24 +68,24 @@ const ProductList = () => {
   };
 
   return (
-    <div className="container xl:mx-[9rem] sm:mx-[0]">
-      <div className="flex flex-col md:flex-row">
+    <div className={`${styles.container}`}>
+      <div className={`${styles.flexWrapper}`}>
         <AdminMenu />
-        <div className="md:w-3/4 p-3">
-          <div className="h-12">Create Product</div>
+        <div className={styles.mainContent}>
+          <h2 className={styles.title}>Create Product</h2>
 
           {imageUrl && (
-            <div className="text-center">
+            <div className={styles.imagePreviewWrapper}>
               <img
                 src={imageUrl}
                 alt="product"
-                className="block mx-auto max-h-[200px]"
+                className={styles.imagePreview}
               />
             </div>
           )}
 
-          <div className="mb-3">
-            <label className="border text-white px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11">
+          <div className={styles.fileUploadWrapper}>
+            <label className={styles.fileUploadLabel}>
               {image ? image.name : "Upload Image"}
 
               <input
@@ -92,79 +93,77 @@ const ProductList = () => {
                 name="image"
                 accept="image/*"
                 onChange={uploadFileHandler}
-                className={!image ? "hidden" : "text-white"}
+                className={!image ? styles.hiddenInput : styles.fileInput}
               />
             </label>
           </div>
 
-          <div className="p-3">
-            <div className="flex flex-wrap">
-              <div className="one">
-                <label htmlFor="name">Name</label> <br />
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="name">Name</label>
                 <input
                   type="text"
-                  className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
+                  className={styles.inputField}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="two ml-10 ">
-                <label htmlFor="name block">Price</label> <br />
+              <div className={styles.formGroup}>
+                <label htmlFor="price">Price</label>
                 <input
                   type="number"
-                  className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
+                  className={styles.inputField}
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
             </div>
-            <div className="flex flex-wrap">
-              <div className="one">
-                <label htmlFor="name block">Quantity</label> <br />
+
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="quantity">Quantity</label>
                 <input
                   type="number"
-                  className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
+                  className={styles.inputField}
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
-              <div className="two ml-10 ">
-                <label htmlFor="name block">Brand</label> <br />
+              <div className={styles.formGroup}>
+                <label htmlFor="brand">Brand</label>
                 <input
                   type="text"
-                  className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
+                  className={styles.inputField}
                   value={brand}
                   onChange={(e) => setBrand(e.target.value)}
                 />
               </div>
             </div>
 
-            <label htmlFor="" className="my-5">
-              Description
-            </label>
-            <textarea
-              type="text"
-              className="p-2 mb-3 bg-[#101011] border rounded-lg w-[95%] text-white"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
+            <div className={styles.formGroup}>
+              <label htmlFor="description">Description</label>
+              <textarea
+                className={styles.textArea}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+            </div>
 
-            <div className="flex justify-between">
-              <div>
-                <label htmlFor="name block">Count In Stock</label> <br />
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="stock">Count In Stock</label>
                 <input
                   type="text"
-                  className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
+                  className={styles.inputField}
                   value={stock}
                   onChange={(e) => setStock(e.target.value)}
                 />
               </div>
-
-              <div>
-                <label htmlFor="">Category</label> <br />
+              <div className={styles.formGroup}>
+                <label htmlFor="category">Category</label>
                 <select
-                  placeholder="Choose Category"
-                  className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
+                  className={styles.selectField}
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="" disabled selected>
@@ -179,13 +178,10 @@ const ProductList = () => {
               </div>
             </div>
 
-            <button
-              onClick={handleSubmit}
-              className="py-4 px-10 mt-5 rounded-lg text-lg font-bold bg-pink-600"
-            >
+            <button type="submit" className={styles.submitButton}>
               Submit
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

@@ -135,7 +135,7 @@ const AdminDashboard = () => {
           />
         </div>
 
-        <div className="mt-[4rem]">
+        <div className="mt-[4rem] mr-[4rem]">
           <OrderList />
         </div>
       </section>

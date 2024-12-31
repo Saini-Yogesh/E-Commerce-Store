@@ -1,0 +1,126 @@
+.container {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1200px;
+  }
+  
+  .flexWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) {
+    .flexWrapper {
+      flex-direction: row;
+    }
+  }
+  
+  .mainContent {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .imagePreviewWrapper {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .imagePreview {
+    max-height: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .fileUploadWrapper {
+    margin-bottom: 1.5rem;
+  }
+  
+  .fileUploadLabel {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .hiddenInput {
+    display: none;
+  }
+  
+  .fileInput {
+    color: white;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .formGroup {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .inputField,
+  .selectField {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #101011;
+    color: white;
+  }
+  
+  .textArea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #101011;
+    color: white;
+    min-height: 100px;
+  }
+  
+  .submitButton {
+    padding: 0.75rem 1.5rem;
+    background-color: #e91e63;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  @media (max-width: 800px) {
+    .inputField,
+    .selectField {
+      font-size: 0.9rem;
+    }
+  
+    .submitButton {
+      width: 100%;
+    }
+  
+    .formRow {
+      flex-direction: column;
+    }
+  }
+  

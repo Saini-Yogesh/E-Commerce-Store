@@ -16,7 +16,7 @@ const AllProducts = () => {
 
   return (
     <>
-      <div className="container mx-[9rem]">
+      <div className="container ">
         <div className="flex flex-col  md:flex-row">
           <div className="p-3">
             <div className="ml-[2rem] text-xl font-bold h-12">
@@ -27,7 +27,7 @@ const AllProducts = () => {
                 <Link
                   key={product._id}
                   to={`/admin/product/update/${product._id}`}
-                  className="block mb-4 overflow-hidden"
+                  className="block mb-4 overflow-hidden w-[70%]"
                 >
                   <div className="flex">
                     <img
@@ -80,7 +80,7 @@ const AllProducts = () => {
               ))}
             </div>
           </div>
-          <div className="md:w-1/4 p-3 mt-2">
+          <div className="fixed top-0 left-0 z-50">
             <AdminMenu />
           </div>
         </div>

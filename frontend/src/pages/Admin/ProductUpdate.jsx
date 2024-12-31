@@ -15,8 +15,6 @@ const AdminProductUpdate = () => {
 
   const { data: productData } = useGetProductByIdQuery(params._id);
 
-  console.log(productData);
-
   const [image, setImage] = useState(productData?.image || "");
   const [name, setName] = useState(productData?.name || "");
   const [description, setDescription] = useState(
@@ -133,10 +131,10 @@ const AdminProductUpdate = () => {
 
   return (
     <>
-      <div className="container  xl:mx-[9rem] sm:mx-[0]">
-        <div className="flex flex-col md:flex-row">
+      <div className="container">
+        <div className="flex flex-col justify-center items-center">
           <AdminMenu />
-          <div className="md:w-3/4 p-3">
+          <div className="p-3 max:w-[1040px] flex flex-col justify-center items-center">
             <div className="h-12">Update / Delete Product</div>
 
             {image && (
@@ -144,7 +142,7 @@ const AdminProductUpdate = () => {
                 <img
                   src={image}
                   alt="product"
-                  className="block mx-auto w-full h-[40%]"
+                  className="block mx-auto h-[300px]"
                 />
               </div>
             )}
@@ -162,13 +160,13 @@ const AdminProductUpdate = () => {
               </label>
             </div>
 
-            <div className="p-3">
-              <div className="flex flex-wrap">
+            <div className="p-3 flex flex-col justify-center items-center">
+              <div className="flex flex-wrap gap-[2rem] justify-center items-center">
                 <div className="one">
                   <label htmlFor="name">Name</label> <br />
                   <input
                     type="text"
-                    className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white mr-[5rem]"
+                    className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -185,13 +183,13 @@ const AdminProductUpdate = () => {
                 </div>
               </div>
 
-              <div className="flex flex-wrap">
+              <div className="flex flex-wrap gap-[2rem] justify-center items-center">
                 <div>
                   <label htmlFor="name block">Quantity</label> <br />
                   <input
                     type="number"
                     min="1"
-                    className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white mr-[5rem]"
+                    className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                   />
@@ -207,19 +205,21 @@ const AdminProductUpdate = () => {
                 </div>
               </div>
 
-              <label htmlFor="" className="my-5">
-                Description
-              </label>
-              <textarea
-                type="text"
-                className="p-2 mb-3 bg-[#101011]  border rounded-lg w-[95%] text-white"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
+              <div className="flex flex-col">
+                <label htmlFor="" className="">
+                  Description
+                </label>
+                <textarea
+                  type="text"
+                  className="p-2 mb-3 w-[30rem] border border-gray-300 rounded-lg bg-[#101011] text-white min-h-[100px]"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
 
-              <div className="flex justify-between">
+              <div className="flex flex-wrap gap-[2rem] justify-center items-center">
                 <div>
-                  <label htmlFor="name block">Count In Stock</label> <br />
+                  <label htmlFor="">Count In Stock</label> <br />
                   <input
                     type="text"
                     className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white "
@@ -232,7 +232,7 @@ const AdminProductUpdate = () => {
                   <label htmlFor="">Category</label> <br />
                   <select
                     placeholder="Choose Category"
-                    className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white mr-[5rem]"
+                    className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
                     onChange={(e) => setCategory(e.target.value)}
                   >
                     {categories?.map((c) => (
